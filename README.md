@@ -1,2 +1,8 @@
-# Template_FastAPI
-Este repo es una plantilla de una API REST con FastAPI con una estructura de carpeta sencilla y modular, incluyendo un docker file y un docker-compose que puede ser extensible.
+Para levantar el contenedor:
+
+**docker-compose up -d --build
+
+Si quieres ver los logs elimina el flag -d
+
+Para parar el contenedor:
+**docker-compose down --rmi all

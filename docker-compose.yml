@@ -1,0 +1,10 @@
+services:
+  app-template:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-template
+    ports: 
+    - '8000:8000'
+    environment:
+      APP_ENVIRONMENT: "local"
