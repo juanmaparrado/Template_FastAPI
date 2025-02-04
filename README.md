@@ -57,6 +57,23 @@ from configuration.logger_config import logger
 logger.info("Mensaje de información")
 logger.error("Mensaje de error")
 ```
+## Uso del Limitador con SlowAPI
+
+El limitador de peticiones `slowapi` está configurado y se puede usar en los endpoints mediante el decorador `@limiter.limit`. 
+Ejemplo de uso en un router:
+```python
+from slowapi import Limiter
+from slowapi.util import get_remote_address
+from fastapi import APIRouter, Depends
+
+limiter = Limiter(key_func=get_remote_address)
+router = APIRouter()
+
+@router.get("/rate-limited-endpoint")
+@limiter.limit("5/minute")
+def limited_route():
+    return {"message": "Este endpoint está limitado a 5 solicitudes por minuto"}
+```
 
 ## Estructura del Proyecto
 
